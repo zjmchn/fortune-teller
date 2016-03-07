@@ -1,0 +1,17 @@
+---
+instances: 1
+buildpack: java_buildpack
+memory: 384M
+applications:
+- name: config-server
+  host: config-service
+  # host: config-server-${random-word}
+  path: fortune-teller-config-server/target/fortune-teller-config-server-0.0.1-SNAPSHOT.jar
+- name: eureka
+  host: eureka-service
+  # host: eureka-server-${random-word}
+  path: fortune-teller-eureka/target/fortune-teller-eureka-0.0.1-SNAPSHOT.jar
+- name: hystrix-dashboard
+  host: hystrix-dashboard-service
+  # host: hystrix-dashboard-${random-word}
+  path: fortune-teller-hystrix-dashboard/target/fortune-teller-hystrix-dashboard-0.0.1-SNAPSHOT.jar
