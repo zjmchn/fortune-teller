@@ -20,7 +20,7 @@
 	<parent>
     	<groupId>org.springframework.cloud</groupId>
     	<artifactId>spring-cloud-starter-parent</artifactId>
-    	<version>Angel.SR4</version>
+    	<version>Angel.SR6</version>
 	</parent>
 
 	<properties>

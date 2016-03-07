@@ -20,4 +20,14 @@ public class FortuneService {
     private Fortune fallbackFortune() {
         return new Fortune(42L, "Your future is unclear.");
     }
+
+    @HystrixCommand(fallbackMethod = "fallbackInstanceId")
+    public String getInstanceId() {
+        return restTemplate.getForObject("http://fortunes/instanceId", String.class);
+    }
+
+    private String fallbackInstanceId() {
+        return "123456789";
+    }
+
 }

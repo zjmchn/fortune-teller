@@ -3,6 +3,7 @@ package io.spring.cloud.samples.fortuneteller.fortuneservice.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,6 +13,9 @@ import io.spring.cloud.samples.fortuneteller.fortuneservice.repositories.Fortune
 
 @RestController
 public class FortuneController {
+
+    @Value("${vcap.application.instance_id}")
+    private String instanceId;
 
     @Autowired
     FortuneRepository repository;
@@ -25,5 +29,10 @@ public class FortuneController {
     public Fortune randomFortune() {
         List<Fortune> randomFortunes = repository.randomFortunes(new PageRequest(0, 1));
         return randomFortunes.get(0);
+    }
+
+    @RequestMapping("/instanceId")
+    public String getInstanceId() {
+        return instanceId;
     }
 }

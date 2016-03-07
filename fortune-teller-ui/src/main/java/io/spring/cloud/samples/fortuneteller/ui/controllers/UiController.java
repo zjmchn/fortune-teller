@@ -17,4 +17,7 @@ public class UiController {
     public Fortune randomFortune() {
         return service.randomFortune();
     }
+
+    @RequestMapping("/instanceId")
+    public String getInstanceId() { return service.getInstanceId(); }
 }
