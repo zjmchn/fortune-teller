@@ -5,7 +5,7 @@ eureka:
   client:
     registryFetchIntervalSeconds: 5
 
-fortunes:
+fortunes-ccs:
   ribbon:
     ServerListRefreshInterval: 5000
 

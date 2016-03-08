@@ -1,6 +1,14 @@
 spring:
   application:
-    name: fortunes
+    name: fortunes-ccs
   cloud:
     config:
       uri: ${vcap.services.config-service.credentials.uri:http://localhost:8888}
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    preferIpAddress: true
+  client:
+    serviceUrl:
+      defaultZone: ${vcap.services.service-registry.credentials.uri:http://eureka-service.mybluemix.net/eureka/}
